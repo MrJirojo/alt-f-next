@@ -4,12 +4,12 @@
 #
 ################################################################################
 
-DOSFSTOOLS_VERSION = 4.1
-DOSFSTOOLS_SOURCE = dosfstools-$(DOSFSTOOLS_VERSION).tar.xz
+DOSFSTOOLS_VERSION = 4.2
 DOSFSTOOLS_SITE = https://github.com/dosfstools/dosfstools/releases/download/v$(DOSFSTOOLS_VERSION)
 DOSFSTOOLS_LICENSE = GPL-3.0+
 DOSFSTOOLS_LICENSE_FILES = COPYING
 DOSFSTOOLS_CPE_ID_VENDOR = dosfstools_project
+DOSFSTOOLS_SELINUX_MODULES = fstools
 DOSFSTOOLS_CONF_OPTS = --enable-compat-symlinks --exec-prefix=/
 HOST_DOSFSTOOLS_CONF_OPTS = --enable-compat-symlinks
 
@@ -22,9 +22,7 @@ endif
 
 ifneq ($(BR2_ENABLE_LOCALE),y)
 DOSFSTOOLS_CONF_OPTS += LIBS="-liconv"
-ifneq ($(BR2_PACKAGE_ALT_F_UTILS_TARGET),y)
 DOSFSTOOLS_DEPENDENCIES += libiconv
-endif
 endif
 
 ifeq ($(BR2_PACKAGE_DOSFSTOOLS_FATLABEL),y)

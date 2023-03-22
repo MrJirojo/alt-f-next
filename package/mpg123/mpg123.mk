@@ -4,10 +4,9 @@
 #
 ################################################################################
 
-MPG123_VERSION = 1.25.13
+MPG123_VERSION = 1.25.15
 MPG123_SOURCE = mpg123-$(MPG123_VERSION).tar.bz2
 MPG123_SITE = http://downloads.sourceforge.net/project/mpg123/mpg123/$(MPG123_VERSION)
-MPG123_CONF_OPTS = --disable-lfs-alias
 MPG123_INSTALL_STAGING = YES
 MPG123_LICENSE = LGPL-2.1
 MPG123_LICENSE_FILES = COPYING
@@ -71,10 +70,6 @@ MPG123_DEPENDENCIES += alsa-lib
 # configure script does NOT use pkg-config to figure out how to link
 # with alsa, breaking static linking as alsa uses pthreads
 MPG123_CONF_ENV += LIBS="`$(PKG_CONFIG_HOST_BINARY) --libs alsa`"
-endif
-
-ifeq ($(BR2_ARM_INSTRUCTIONS_THUMB),y)
-MPG123_CONF_ENV += CFLAGS="$(TARGET_CFLAGS) -marm"
 endif
 
 MPG123_CONF_OPTS += --with-audio=$(subst $(space),$(comma),$(MPG123_AUDIO))

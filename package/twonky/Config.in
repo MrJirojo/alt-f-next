@@ -1,6 +1,0 @@
-config BR2_PACKAGE_TWONKY
-	bool "twonky"
-	help
-	  twonky is a uPnP media server
-
-	  http://www.twonky.com

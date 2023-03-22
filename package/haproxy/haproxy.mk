@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-HAPROXY_VERSION_MAJOR = 2.2
+HAPROXY_VERSION_MAJOR = 2.6
 HAPROXY_VERSION = $(HAPROXY_VERSION_MAJOR).9
 HAPROXY_SITE = http://www.haproxy.org/download/$(HAPROXY_VERSION_MAJOR)/src
 HAPROXY_LICENSE = GPL-2.0+ and LGPL-2.1+ with exceptions
