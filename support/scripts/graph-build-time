@@ -269,7 +269,7 @@ def pkg_timeline(data, output):
     # put last packages that started to configure last; this does not
     # give the proper dependency chain, but still provides a good-enough
     # cascade graph.
-    for p in sorted(data, reverse=True, key=lambda x: x.steps_start['configure']):
+    for p in sorted(data, reverse=True, key=lambda x: x.steps_start['configure'] if ('configure' in x.steps_start) else 0):
         durations = []
         facecolors = []
         for step in steps:
